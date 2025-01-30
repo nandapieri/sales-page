@@ -2,31 +2,148 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 0;
+    padding: 0;
     background-color: #f4f4f4;
 }
 
-h1, h2 {
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #333;
+    text-shadow: 1px 1px 3px rgba(255,255,255,0.5);
+    background-color: rgba(255,255,255,0.7);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.hero-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero-text h2 {
+    font-size: 1.5em;
+}
+
+.main-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.main-content h2, .main-content h3 {
     color: #2c3e50;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
-.cta-button {
-    display: inline-block;
-    background-color: #e74c3c;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    font-size: 18px;
+.main-content p {
+    margin-bottom: 20px;
+}
+
+.highlight-box {
+    background-color: #f8f9fa;
+    border-left: 4px solid #e74c3c;
+    padding: 15px;
     margin: 20px 0;
-    transition: background-color 0.3s;
 }
 
-.cta-button:hover {
-    background-color: #c0392b;
+.highlight-box-with-image {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    border-left: 4px solid #e74c3c;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.highlight-text {
+    flex: 1;
+    padding: 15px;
+}
+
+.highlight-image {
+    flex: 1;
+    padding: 15px;
+}
+
+.highlight-box-with-image {
+    display: flex;
+    align-items: stretch;
+    background-color: #f8f9fa;
+    margin: 20px 0;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.highlight-image {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+    padding: 0;
+}
+
+.highlight-text {
+    flex: 2;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border-right: 4px solid #e74c3c;
+}
+
+.content-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.highlight-text p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #2c3e50;
+    font-weight: 500;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .highlight-box-with-image {
+        flex-direction: column;
+    }
+
+    .highlight-image {
+        max-width: 100%;
+        height: 200px;
+    }
+
+    .highlight-text {
+        border-right: none;
+        border-bottom: 4px solid #e74c3c;
+    }
+}
+
+.content-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
 
 .benefits {
@@ -36,8 +153,70 @@ h1, h2 {
     margin: 20px 0;
 }
 
-.benefit-item {
-    margin-bottom: 10px;
+.benefits h3 {
+    color: #2c3e50;
+    margin-top: 0;
+}
+
+.benefits ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.benefits li {
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+}
+
+.benefits li::before {
+    content: '✅';
+    position: absolute;
+    left: 0;
+}
+
+.cta-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #e74c3c;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
+    max-width: 80%;
+    width: 100%;
+}
+
+.cta-button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+.ebook-preview {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 40px auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.ebook-cover {
+    max-width: 200px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 #countdown {
@@ -45,4 +224,29 @@ h1, h2 {
     font-weight: bold;
     color: #e74c3c;
     margin: 20px 0;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .main-content, .ebook-preview {
+        padding: 15px;
+    }
+
+    .ebook-preview {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cta-button {
+        font-size: 18px;
+        padding: 15px 25px;
+    }
+
+    .highlight-box-with-image {
+        flex-direction: column;
+    }
+
+    .highlight-text, .highlight-image {
+        width: 100%;
+    }
 }
